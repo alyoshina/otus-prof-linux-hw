@@ -1,0 +1,17 @@
+---
+# tasks file for nginx
+
+- name: Nginx install
+  apt:
+    name: nginx
+    state: present
+  notify: Restart nginx
+  tags: nginx-install
+
+
+- name: Nginx configuration
+  template:
+    src: ./templates/nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+  notify: Reload nginx
+  tags: nginx-configuration

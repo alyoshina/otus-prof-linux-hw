@@ -1,0 +1,11 @@
+---
+
+- name: Nginx
+  hosts: nginx
+  become: true
+  tasks:
+    - name: Update cache
+      apt:
+        update_cache: yes
+  roles:
+    - nginx
